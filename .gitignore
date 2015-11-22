@@ -1,2 +1,7 @@
 .DS_Store
 data/schema.graphql
+node_modules
+npm-debug.log
+
+*.iml
+.idea

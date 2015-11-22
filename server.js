@@ -18,11 +18,15 @@ import WebpackDevServer from 'webpack-dev-server';
 import {schema} from './data/schema';
 
 const APP_PORT = 3000;
-const GRAPHQL_PORT = 8080;
+const GRAPHQL_PORT = 8081;
 
 // Expose a GraphQL endpoint
 var graphQLServer = express();
-graphQLServer.use('/', graphQLHTTP({schema, pretty: true}));
+graphQLServer.use('/', graphQLHTTP({
+  graphiql: true,
+  pretty: true,
+  schema: schema,
+}));
 graphQLServer.listen(GRAPHQL_PORT, () => console.log(
   `GraphQL Server is now running on http://localhost:${GRAPHQL_PORT}`
 ));
